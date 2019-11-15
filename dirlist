@@ -1,0 +1,20 @@
+GRADE.TXT
+boilerplate.cpp
+examples
+    01-Intro-C++
+    03-Prog-Structure
+    04-Arithmetic
+    05-Decisions
+    06-Decisions
+    07-Loops
+    ...
+programs
+    program1
+    program2
+    program3
+    ...
+labs
+    week2
+    week3
+    week4
+    ...

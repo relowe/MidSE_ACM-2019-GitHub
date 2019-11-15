@@ -15,10 +15,12 @@
 \usepackage[T1]{fontenc}
 \usepackage{tikz}
 \usepackage{graphicx}
+\usepackage{fancyvrb}
+\usepackage{adjustbox}
 
 \newcommand{\imagesource}[1]{{\centering\hfill\break\hbox{\scriptsize Image Source:\thinspace{\small\itshape #1}}\par}}
 
-\title{Beamer Template for MC}
+\title{Using GitHub in First Year Computer Science Courses}
 
 
 \author{Dr. Robert Lowe\\}
@@ -51,10 +53,6 @@
   \titlepage
 \end{frame}
 
-\begin{frame}{Outline}
-  \tableofcontents
-\end{frame}
-
 
 % Structuring a talk is a difficult task and the following structure
 % may not be suitable. Here are some rules that apply for this
@@ -73,46 +71,146 @@
 % - If you omit details that are vital to the proof/implementation,
 %   just say so once. Everybody will be happy with that.
 
-\section{}
-\begin{frame}
-  \frametitle{Normal Frame}
-  \begin{itemize}
-    \item item 1
-    \item item 2
-  \end{itemize}
+\begin{frame}{Motivation}
+    \begin{itemize}
+        \item I was already teaching revision control as a tool.
+        \item More and more job applications included a place for
+            your ``GitHub URL''.
+        \item I also wanted to encourage students to play with open
+            source code.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{GitHub Academic Services}
+    \begin{columns}
+        \column{0.7\textwidth}
+        \begin{itemize}
+            \item \url{https://classroom.github.com}
+            \item GitHub has a classroom interface.
+            \item This creates an Organization, which houses all your
+                repositories.
+            \item Premium features, such as creating private
+                repositories, are available for free to educators.
+            \item The classroom interface creates a repository for
+                each assignment.
+        \end{itemize}
+        \column{0.3\textwidth}
+        \includegraphics[width=\textwidth]{classroom-logo}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Initial Rollout in Introduction to CS II}
+    \begin{itemize}
+        \item Initially, I used the classroom interface.
+        \item I gave 5 programming assignments, the first 4 in private
+            repositories.
+        \item The fifth assignment was a public repository, in this
+            project the students were to write an original game.
+        \item After CS II, their GitHub account would contain one open
+            source program.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Management Scripts}
+    \begin{itemize}
+        \item I ultimately abandoned the classroom interface.
+        \item I wrote a series of scripts to automate my workflow:
+        \begin{itemize}
+            \item deploy-assignment
+            \item distribute
+            \item distribute-grades
+            \item fetch-assignment
+            \item grade-assignment
+            \item grade-report
+        \end{itemize}
+        \item These scripts are available at: 
+        \newline\url{https://github.com/pngwen/cs-classroom}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Using GitHub in Introduction to CS I}
+
+    \begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+        \item Students have one private repository for the whole semester.
+        \item Includes a \texttt{.gitignore} which will not publish
+            binaries.
+        \item Classroom examples are deployed in the example
+            directory.
+        \item Grade reports are published to their repositories.
+        \item We do one group assignment at the end of the semester,
+            where groups share a private GitHub repository.
+    \end{itemize}
+
+    \column{0.5\textwidth}
+    \begin{block}{Student Repository}
+    \begin{adjustbox}{max totalheight=0.8\textheight}
+    \begin{BVerbatim}
+GRADE.TXT
+boilerplate.cpp
+examples
+    01-Intro-C++
+    03-Prog-Structure
+    04-Arithmetic
+    05-Decisions
+    06-Loops
+    ...
+programs
+    program1
+    program2
+    ...
+labs
+    week2
+    ...
+    \end{BVerbatim}
+    \end{adjustbox}
+    \end{block}
+    \end{columns}
 \end{frame}
 
 
-\begin{frame}[fragile]
-  \frametitle{code frame}
-  \begin{block}{multsh}
-\begin{verbatim}
-...
-#start the scr server
-busybox telnetd -p 1337 -l multsh-login
+\begin{frame}{Goals in Both Semesters}
+    \textbf{CSC111 - Intro CS I}
+    \begin{itemize}
+        \item Gain familiarity with the basic git workflow: pull, add,
+            commit, push.
+        \item Collaborate via GitHub.
+        \item Easily access grades and examples.
+    \end{itemize}
 
-#start the screen session
-screen -S multsh
-
-#shutdown once screen exits
-killall busybox
-\end{verbatim}
-  \end{block}
+    \vspace{1cm}
+    \textbf{CSC111 - Intro CS II}
+    \begin{itemize}
+        \item Learn to manage GitHub repositories.
+        \item Treat each assignment as a new GitHub project.
+        \item Publish an open source project via GitHub.
+        \item Learn to play with code found on GitHub.
+    \end{itemize}
 \end{frame}
 
-
-\begin{frame}
-  \frametitle{multicolumn}
-  \begin{columns}
-  \column{0.5\textwidth}
-  \begin{block}{left}
-  \end{block}
-  \column{0.5\textwidth}
-  \begin{block}{right}
-  \end{block}
-  \end{columns}
+\begin{frame}{Results}
+    \begin{itemize}
+        \item Students seem to take to GitHub.
+        \item I have seen better directory organization from my CS
+            I students!
+        \item In the first semester, they get an intuitive feel for
+            collaboration.
+        \item By the end of the second semester, they are able to
+            participate in community projects.
+    \end{itemize}
 \end{frame}
 
+\begin{frame}{Future Improvements}
+\begin{itemize}
+    \item I need to document my scripts.
+    \item I need to make the scripts more user friendly.
+    \item In the future, I may create a project that calls on students
+        to pull together several open source projects and modify them.
+    \item Slowly, but surely, I am migrating all my classroom sources
+        to \url{https://github.com/relowe}
+\end{itemize}
+\end{frame}
 
 \end{document}
 
